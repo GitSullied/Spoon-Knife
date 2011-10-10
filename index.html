@@ -39,9 +39,15 @@
 	function keydownHandler(e){
 		keyCodes.shift();
 		keyCodes.push(e.keyCode);
+		document.getElementById("key-queue").innerHTML = keyCodes;
 		if(keyCodes.every(function(element, index, array){return element===pattern[index];})){
 			document.getElementById("rainbow-message").style.display="";
 		}
+	}
+	function keydownHandlerTest(e) {
+		keyCodes.shift();
+		keyCodes.push(e.keyCode);
+		alert(keyCodes);
 	}
 	window.onkeydown=keydownHandler;
    </script>
@@ -54,6 +60,9 @@
 
 <p>
   Fork me? No, fork you!
+</p>
+<p id="key-queue">
+  Queue Empty
 </p>
 <div id="rainbow-message" style="display:none">
 Double repositories all the way across the sky!<br/>
